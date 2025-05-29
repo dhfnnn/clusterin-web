@@ -71,4 +71,25 @@ function health(array $data){
     
     return $rataRata;
 }
+function readCcn()
+{
+    $file = "../.ccn";
+    $data = [];
+    if (!file_exists($file)) return $data;
+    foreach (file($file) as $line) {
+        if (trim($line) === '' || str_starts_with(trim($line), '#')) continue;
+        [$key, $val] = explode('=', $line, 2) + [null, null];
+        if ($key !== null) $data[trim($key)] = trim($val);
+    }
+    return $data;
+}
+function writeCcn($key, $value = "")
+{
+    $file = "../.ccn";
+    $data = readCcn($file);
+    $data[$key] = $value;
+    $lines = [];
+    foreach ($data as $k => $v) $lines[] = "$k=$v";
+    file_put_contents($file, implode(PHP_EOL, $lines));
+}
 ?>

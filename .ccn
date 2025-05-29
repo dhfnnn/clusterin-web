@@ -1,7 +1,0 @@
-SETUP_APP=true
-SETUP_DBS=true
-APP_URL=http://172.20.10.2:1000
-DB_HOST=localhost
-DB_USER=aku
-DB_PASS=aku
-DB_NAME=clusterin

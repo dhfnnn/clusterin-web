@@ -1,4 +1,6 @@
 <?php
+require "apps/core.php";
+require "vendor/autoload.php";
 $sumAllHealth = 0;
 $responseStart = microtime(true);
 date_default_timezone_set('Asia/Jakarta');
@@ -6,8 +8,6 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $path = trim($uri, '/');
 $segments = explode('/', $path);
 $lastSeg = end($segments);
-require "apps/core.php";
-require "vendor/autoload.php";
 
 switch ($path) {
     case '':
