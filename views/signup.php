@@ -77,7 +77,7 @@
         </form>
     </div>
     <div class="container paragraf-semiMini d-flex justify-content-center align-items-center gap-1">
-        Sudah punya akun? <a href="#" style="font-weight: var(--fwbold); color:white;">Register</a>
+        Sudah punya akun? <a href="signin" style="font-weight: var(--fwbold); color:white;">Register</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
