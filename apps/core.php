@@ -1,7 +1,29 @@
 <?php
+function readCcn()
+{
+    $file = "../.ccn";
+    $data = [];
+    if (!file_exists($file)) return $data;
+    foreach (file($file) as $line) {
+        if (trim($line) === '' || str_starts_with(trim($line), '#')) continue;
+        [$key, $val] = explode('=', $line, 2) + [null, null];
+        if ($key !== null) $data[trim($key)] = trim($val);
+    }
+    return $data;
+}
+function writeCcn($key, $value = "")
+{
+    $file = "../.ccn";
+    $data = readCcn($file);
+    $data[$key] = $value;
+    $lines = [];
+    foreach ($data as $k => $v) $lines[] = "$k=$v";
+    file_put_contents($file, implode(PHP_EOL, $lines));
+}
 function api($endpoint, $method = 'GET', $data = null, $bearerToken = null)
 {
-    $url = "http://127.0.0.1:2000/ccn/$endpoint";
+    $readccn = readCcn();
+    $url = $readccn['URL_SERVER']."/ccn/$endpoint";
     $ch = curl_init();
 
     // Tambahkan query string jika GET dan data tersedia
@@ -71,25 +93,5 @@ function health(array $data){
     
     return $rataRata;
 }
-function readCcn()
-{
-    $file = "../.ccn";
-    $data = [];
-    if (!file_exists($file)) return $data;
-    foreach (file($file) as $line) {
-        if (trim($line) === '' || str_starts_with(trim($line), '#')) continue;
-        [$key, $val] = explode('=', $line, 2) + [null, null];
-        if ($key !== null) $data[trim($key)] = trim($val);
-    }
-    return $data;
-}
-function writeCcn($key, $value = "")
-{
-    $file = "../.ccn";
-    $data = readCcn($file);
-    $data[$key] = $value;
-    $lines = [];
-    foreach ($data as $k => $v) $lines[] = "$k=$v";
-    file_put_contents($file, implode(PHP_EOL, $lines));
-}
+
 ?>

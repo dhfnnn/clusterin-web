@@ -1,6 +1,7 @@
 <?php
 require "apps/core.php";
 require "vendor/autoload.php";
+$ccn = readCcn();
 $sumAllHealth = 0;
 $responseStart = microtime(true);
 date_default_timezone_set('Asia/Jakarta');
