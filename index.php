@@ -1,7 +1,7 @@
 <?php
 require "apps/core.php";
 require "vendor/autoload.php";
-$ccn = readCcn();
+//$ccn = readCcn();
 $sumAllHealth = 0;
 $responseStart = microtime(true);
 date_default_timezone_set('Asia/Jakarta');
@@ -57,12 +57,17 @@ switch ($path) {
     case 'management':
         include 'views/management.php';
         break;
-
-    case 'profile':
-        include 'views/profile.php';
-        break;
     case 'profiles':
         include 'views/profiles.php';
+        break;
+    case 'account':
+        include 'views/account.php';
+        break;
+    case 'keluarga':
+        include 'views/keluarga.php';
+        break;
+    case 'pribadi':
+        include 'views/pribadi.php';
         break;
 
 

@@ -48,6 +48,11 @@
                 <label for="floatingNIK">NIK</label>
             </div>
             <div class="form-floating mb-2">
+                <input type="text" class="form-control" style="border-radius: 16px;" id="floatingNIK"
+                    placeholder="NIK" name="kepala_keluarga">
+                <label for="floatingNIK">NIK Kepala Keluarga</label>
+            </div>
+            <div class="form-floating mb-2">
                 <input type="text" class="form-control" style="border-radius: 16px;" id="floatingAlamatRumah"
                     placeholder="AlamatRumah" name="address">
                 <label for="floatingAlamatRumah">Alamat Rumah</label>
@@ -88,16 +93,6 @@
         if(isset($_POST['signup'])){
             $_POST['role'] = 'Warga';
             $_POST['status_account'] = 'Pending';
-            // $account = api('account/create', 'POST', [
-            //     'fullname' => $_POST['fullname'],
-            //     'address' => $_POST['address'],
-            //     'whatsapp' => $_POST['whatsapp'],
-            //     'nik' => $_POST['nik'],
-            //     'password' => $_POST['password'],
-            //     'role' => $role,
-            //     'gender' => $_POST['gender'],
-            //     'status_account' => $status
-            // ]);
 
             $account = api('account/create', 'POST', $_POST);
 

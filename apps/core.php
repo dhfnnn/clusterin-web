@@ -20,10 +20,57 @@ function writeCcn($key, $value = "")
     foreach ($data as $k => $v) $lines[] = "$k=$v";
     file_put_contents($file, implode(PHP_EOL, $lines));
 }
+// function api($endpoint, $method = 'GET', $data = null, $bearerToken = null)
+// {
+//     $readccn = readCcn();
+//     $url = $readccn['URL_SERVER']."/ccn/$endpoint";
+//     $ch = curl_init();
+
+//     // Tambahkan query string jika GET dan data tersedia
+//     if (strtoupper($method) === 'GET' && $data) {
+//         $url .= '?' . http_build_query($data);
+//     }
+
+//     curl_setopt($ch, CURLOPT_URL, $url);
+//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+//     // Set HTTP Method
+//     switch (strtoupper($method)) {
+//         case 'POST':
+//             curl_setopt($ch, CURLOPT_POST, true);
+//             if ($data) {
+//                 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+//             }
+//             break;
+//         case 'DELETE':
+//         case 'DESTROY': // alias untuk DELETE
+//             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+//             if ($data) {
+//                 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+//             }
+//             break;
+//             // default GET sudah ditangani di atas
+//     }
+
+//     // Header default
+//     $headers = ['Content-Type: application/x-www-form-urlencoded'];
+
+//     // Tambahkan Authorization jika token diberikan
+//     if ($bearerToken) {
+//         $headers[] = 'Authorization: Bearer ' . $bearerToken;
+//     }
+
+//     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+//     // Eksekusi
+//     $response = curl_exec($ch);
+//     return $response;
+//     curl_close($ch);
+// }
+
 function api($endpoint, $method = 'GET', $data = null, $bearerToken = null)
 {
-    $readccn = readCcn();
-    $url = $readccn['URL_SERVER']."/ccn/$endpoint";
+    $url = "http://127.0.0.1:2000/ccn/$endpoint";
     $ch = curl_init();
 
     // Tambahkan query string jika GET dan data tersedia

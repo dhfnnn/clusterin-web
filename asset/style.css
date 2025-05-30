@@ -199,6 +199,7 @@ body.bg {
 .nav-badge.active {
     background-color: var(--biruBG1);
     color: var(--white);
+
 }
 
 .navbar-hover:hover img,
@@ -217,11 +218,7 @@ body.bg {
     filter: brightness(0) saturate(100%) invert(13%) sepia(93%) saturate(1797%) hue-rotate(198deg) brightness(97%) contrast(94%);
 }
 
-.navbar-hover.active {
-    background-color: rgba(0, 51, 102, 0.1);
-    border-radius: 50%;
-    padding: 0.5rem;
-}
+
 
 .navbar-nav .nav-item:hover img,
 .navbar-nav .nav-item:hover a {
@@ -395,7 +392,7 @@ thead tr th {
 .btn-u {
     background: #9DB2BF !important;
     color: white;
-    padding: 4px 10px; 
+    padding: 4px 10px;
 }
 
 .btn-u:hover {
@@ -413,19 +410,69 @@ thead tr th {
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
+
 .garis-bawah {
-  border: none;
-  height: 5px;
-  background-color: white; 
-  width: 90%; 
-  margin: 20px auto 0;
-  border-radius: 4px;
+    border: none;
+    height: 5px;
+    background-color: white;
+    width: 90%;
+    margin: 20px auto 0;
+    border-radius: 4px;
+}
+
+.nav-info .nav-link,
+.nav-info .nav-link:hover,
+.nav-info .nav-link.active {
+    color: var(--biruBG1) !important;
+    
+}
+
+.nav-info:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+    font-weight: var(--fwbold);
+    color: var(--biruBG1) !important;
+}
+
+.btn-edit {
+    background: #9DB2BF !important;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.btn-edit:hover {
+   
+    transition: all 0.3s ease;
+    font-weight: var(--fwbold);
 }
 
 
 
 a {
   text-decoration: none;
+}
+.tbl-ubh{
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+}
+.tbl-ubh button{
+    background: #36596C;
+    cursor: pointer;
+    padding: 3px 10px;
+    transition: .2s;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+}
+.tbl-ubh button:hover{
+    padding: 3px 15px;
 }
 .profile-header{
     display: flex;
