@@ -214,10 +214,10 @@ $sumAllHealth = number_format($heaAcc, 2);
 
                 $updateAcc = json_decode(api('account/update', 'POST', $_POST, $_SESSION['user_token']), true);
                 if($updateAcc['success'] == true){
-                    echo "<script>alert('Akun berhasil diubah'); location.href = 'account';</script>";
+                    echo "<script>alert('Akun berhasil diubah'); location.href = 'profile?validated=".$_SESSION['user_token']."';</script>";
                 }
                 else{
-                    echo "<script>alert('Akun gagal diubah: " . $updateAcc['message'] . "'); location.href = 'account';</script>";
+                    echo "<script>alert('Akun gagal diubah: " . $updateAcc['message'] . "'); location.href = 'profile?validated=".$_SESSION['user_token']."';</script>";
                 }
             }
             ?>
