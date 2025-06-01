@@ -124,21 +124,21 @@ $sumAllHealth = number_format($heaAcc, 2);
                                     if (move_uploaded_file($tmpName, "asset/sources/" . $newName)) {
                                         $query = json_decode(api('photo/create', 'POST', ['user_token' => $_SESSION['user_token'], 'photo' => $newName], $_SESSION['user_token']), true);
                                         if ($query['success'] == true) {
-                                            echo "<script>alert('Foto berhasil disimpan ke server'); location.href = 'account';</script>";
+                                            echo "<script>alert('Foto berhasil disimpan ke server'); location.href = 'profile?validated=".$_SESSION['user_token']."';</script>";
                                         } else {
-                                            echo "<script>alert('Foto gagal disimpan ke server'); location.href = 'account';</script>";
+                                            echo "<script>alert('Foto gagal disimpan ke server'); location.href = 'profile?validated=".$_SESSION['user_token']."';</script>";
                                         }
                                     } else {
-                                        echo "<script>alert('Foto gagal disimpan'); location.href = 'account';</script>";
+                                        echo "<script>alert('Foto gagal disimpan'); location.href = 'profile?validated=".$_SESSION['user_token']."';</script>";
                                     }
                                 }
                                 if (isset($_POST['deletepp'])) {
                                     $query = json_decode(api('photo/delete', 'POST', ['user_token' => $_SESSION['user_token']], $_SESSION['user_token']), true);
                                     if ($query['success'] == true) {
                                         unlink("asset/sources/" . $query['data']['photo']);
-                                        echo "<script>alert('Foto berhasil dihapus'); location.href = 'account';</script>";
+                                        echo "<script>alert('Foto berhasil dihapus'); location.href = 'profile?validated=".$_SESSION['user_token']."';</script>";
                                     } else {
-                                        echo "<script>alert('Foto gagal dihapus: " . $query['message'] . "'); location.href = 'account';</script>";
+                                        echo "<script>alert('Foto gagal dihapus: " . $query['message'] . "'); location.href = 'profile?validated=".$_SESSION['user_token']."';</script>";
                                     }
                                 }
                                 ?>
@@ -219,6 +219,7 @@ $sumAllHealth = number_format($heaAcc, 2);
                 else{
                     echo "<script>alert('Akun gagal diubah: " . $updateAcc['message'] . "'); location.href = 'profile?validated=".$_SESSION['user_token']."';</script>";
                 }
+                
             }
             ?>
             <?php 
