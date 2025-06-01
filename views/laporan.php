@@ -26,6 +26,13 @@ $pengaduanMenunggu = json_decode(api('pengajuan', 'GET', ['kategori' => 'Pengadu
 $guestTotal = json_decode(api('guest'), true);
 $guestIn = json_decode(api('guest', 'GET', ['status' => 'Masuk']), true);
 $guestOut = json_decode(api('guest', 'GET', ['status' => 'Keluar']), true);
+
+$getPP = json_decode(api('photo', 'GET', ['user_token' => $_SESSION['user_token']], $_SESSION['user_token']), true);
+if ($getPP['success'] == true) {
+    $photoProfile = "asset/sources/" . $getPP['data']['photo'];
+} else {
+    $photoProfile = "asset/images/Akun.png";
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -84,8 +91,8 @@ $guestOut = json_decode(api('guest', 'GET', ['status' => 'Keluar']), true);
             <a class="navbar-brand header-2">Laporan Wilayah</a>
             <ul class="navbar-nav ms-auto mb-lg-0">
                 <li class="nav-item">
-                    <a class="paragraf-semiMini me-2" href="">Hi, <?= $name_account ?></a>
-                    <img src="asset/images/Akun.png" alt="akun" width="30" height="30">
+                    <a class="paragraf-semiMini me-2" href="profile?validated=<?= $_SESSION['user_token']?>">Hi, <?= $name_account ?></a>
+                    <img src="<?= $photoProfile?>" alt="akun" width="30" height="30">
                 </li>
             </ul>
         </div>

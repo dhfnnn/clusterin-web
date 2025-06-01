@@ -64,7 +64,7 @@ switch ($path) {
     case 'profiles':
         include 'views/profiles.php';
         break;
-    case 'account':
+    case 'profile':
         include 'views/account.php';
         break;
     case 'keluarga':

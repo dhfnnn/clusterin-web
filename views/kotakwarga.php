@@ -14,6 +14,13 @@ if (!$getAcc['success'] == true) {
 $name_account = $getAcc['data']['fullname'];
 $heaAcc = $getAcc['response'];
 $sumAllHealth = number_format($heaAcc, 2);
+
+$getPP = json_decode(api('photo', 'GET', ['user_token' => $_SESSION['user_token']], $_SESSION['user_token']), true);
+if ($getPP['success'] == true) {
+    $photoProfile = "asset/sources/" . $getPP['data']['photo'];
+} else {
+    $photoProfile = "asset/images/Akun.png";
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -48,8 +55,8 @@ $sumAllHealth = number_format($heaAcc, 2);
             <a class="navbar-brand header-2">Kotak Warga</a>
             <ul class="navbar-nav ms-auto mb-lg-0">
                 <li class="nav-item">
-                    <a class="paragraf-semiMini me-2" href="">Hi, <?= $name_account ?></a>
-                    <img src="asset/images/Akun.png" alt="akun" width="30" height="30">
+                    <a class="paragraf-semiMini me-2" href="profile?validated=<?= $_SESSION['user_token']?>">Hi, <?= $name_account ?></a>
+                    <img src="<?= $photoProfile?>" alt="akun" width="30" height="30">
                 </li>
             </ul>
         </div>

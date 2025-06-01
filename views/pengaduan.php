@@ -41,6 +41,12 @@ else{
 
 
 $sumAllHealth = number_format($heaAcc, 2);
+$getPP = json_decode(api('photo', 'GET', ['user_token' => $_SESSION['user_token']], $_SESSION['user_token']), true);
+if ($getPP['success'] == true) {
+    $photoProfile = "asset/sources/" . $getPP['data']['photo'];
+} else {
+    $photoProfile = "asset/images/Akun.png";
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -100,8 +106,8 @@ $sumAllHealth = number_format($heaAcc, 2);
         <div class="container">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="paragraf-semiMini me-2" href="profile.html">Hi, <?= $name_account ?></a>
-                    <img src="asset/images/Akun.png" alt="akun" width="30" height="30">
+                    <a class="paragraf-semiMini me-2" href="profile?validated=<?= $_SESSION['user_token']?>">Hi, <?= $name_account ?></a>
+                    <img src="<?= $photoProfile?>" alt="akun" width="30" height="30">
                 </li>
             </ul>
         </div>

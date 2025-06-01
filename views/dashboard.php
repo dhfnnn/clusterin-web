@@ -52,6 +52,13 @@ $heaGuestKeluar = $getGuestKeluar['response'];
 $sumAllHealth = number_format($heaAcc + $heaAccount + $heaPengaduan + $heaAccPengaduan + $heaPermohonan + $heaAccPermohonan + $heaGuestMasuk + $heaGuestKeluar / 7, 2);
 // $log = dated() . " - Response time: {$sumAllHealth}ms" . PHP_EOL;
 // file_put_contents('health.txt', $log, FILE_APPEND);
+
+$getPP = json_decode(api('photo', 'GET', ['user_token' => $_SESSION['user_token']], $_SESSION['user_token']), true);
+if ($getPP['success'] == true) {
+    $photoProfile = "asset/sources/" . $getPP['data']['photo'];
+} else {
+    $photoProfile = "asset/images/Akun.png";
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -85,7 +92,7 @@ $sumAllHealth = number_format($heaAcc + $heaAccount + $heaPengaduan + $heaAccPen
             <ul class="navbar-nav ms-auto mb-lg-0">
                 <a href="profile?validated=<?= $_SESSION['user_token']?>" class="profile-header">
                     <span><?= $name_account ?></span>
-                    <img src="asset/images/Akun.png" alt="akun" width="30" height="30">
+                    <img src="<?= $photoProfile?>" alt="akun" width="30" height="30">
                 </a>
             </ul>
         </div>

@@ -180,6 +180,13 @@ $sumAllHealth = number_format($heaAcc, 2);
                         </div>
                     </div>
                     <div class="mb-2 row">
+                        <label for="kk" class="col-sm-2 col-form-label">NIK Kepala Keluarga</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control-plaintext" id="kk" <?= $readonly?> name="kepala_keluarga" value="<?= $getAcc['data']['kepala_keluarga']?>"
+                                style="font-weight: var(--fwbold);">
+                        </div>
+                    </div>
+                    <div class="mb-2 row">
                         <label for="staticEmail" class="col-sm-2 col-form-label">Alamat Rumah</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control-plaintext" id="staticEmail"
