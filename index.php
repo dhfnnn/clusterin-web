@@ -14,6 +14,10 @@ switch ($path) {
     case '':
         include 'views/dashboard.php';
         break;
+    case 'clusterin':
+        include 'views/landing.php';
+        break;
+
     case 'signin':
         include 'views/signin.php';
         break;
