@@ -23,7 +23,8 @@
 		<header id="header" class="alt style2">
 			<a href="" class="logo"><strong>Clusterin</strong>
 				<nav>
-					<a href="#menu">Menu</a>
+					<a href="signin" style="letter-spacing: 0.5px;">Masuk</a>
+					<a href="signup" style="letter-spacing: 0.5px;">Register</a>
 				</nav>
 		</header>
 
